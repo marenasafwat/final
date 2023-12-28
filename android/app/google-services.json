@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065788196723",
+    "project_id": "ff-auth-9c1ca",
+    "storage_bucket": "ff-auth-9c1ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065788196723:android:69986c1bc7251e2019e706",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASmcZX6LAgbD0oA_KJLQ-hgOyfskwHP64"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
