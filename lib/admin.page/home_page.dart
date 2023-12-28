@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/admin.page/stuact_page.dart';
+import 'package:flutter_application_1/admin.page/youthpagr.dart';
 import 'package:flutter_application_1/screens/ayouth_screen.dart';
 import 'package:flutter_application_1/widgets/circlebutton.dart';
 
@@ -92,7 +93,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => YouthCare()),
+                      MaterialPageRoute(builder: (context) => YouthPage()),
                     );
                   },
                 ),
@@ -134,7 +135,7 @@ class AppBar extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Hello, \n Ree',
+              'Hello, \n there',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 20,

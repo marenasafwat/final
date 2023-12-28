@@ -18,7 +18,7 @@ class YouthPage extends StatelessWidget {
         title: Text('events'),
       ),
       body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("events").snapshots(),
+        stream: FirebaseFirestore.instance.collection("Events").snapshots(),
         builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(
@@ -47,8 +47,7 @@ class YouthPage extends StatelessWidget {
             builder: (context) {
               TextEditingController nameController = TextEditingController();
               TextEditingController aboutController = TextEditingController();
-              TextEditingController descriptionController =
-                  TextEditingController();
+              TextEditingController descriptionController =TextEditingController();
               TextEditingController imageController = TextEditingController();
 
               return Dialog(
@@ -119,7 +118,7 @@ class YouthPage extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: TextFormField(
-                          controller: descriptionController,
+                          controller: imageController,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'Please enter URL';
@@ -155,19 +154,19 @@ class YouthPage extends StatelessWidget {
                             String about = aboutController.text;
                             String description = descriptionController.text;
                             String image = imageController.text;
-                            nameController.clear();
-                            aboutController.clear();
-                            descriptionController.clear();
-                            imageController.clear();
+                            //nameController.clear();
+                            //aboutController.clear();
+                            //descriptionController.clear();
+                            //imageController.clear();
 
-                            var db = FirebaseFirestore.instance;
+                            var y = FirebaseFirestore.instance;
 
                             Youth youth = Youth(
                                 name: name,
                                 about: about,
                                 description: description,
                                 image: image);
-                            await db
+                            await y
                                 .collection('Events')
                                 .doc(name)
                                 .set(youth.toMap());
@@ -197,16 +196,14 @@ class YouthPage extends StatelessWidget {
                           String description = descriptionController.text;
                           String image = imageController.text;
 
-                          if (_formKey.currentState!.validate()) {
-                            //var db = FirebaseFirestore.instance;
+                          //if (_formKey.currentState!.validate())
+                           {
+                            //var y = FirebaseFirestore.instance;
 
                             // Use the event name as the document ID for updating
-                            await updateFirestore(name, name, about, description, image);
+                            updateFirestore(name, name, about, description, image);
 
-                            nameController.clear();
-                            aboutController.clear();
-                            descriptionController.clear();
-                            imageController.clear();
+                            
 
                             Navigator.pop(context);
                           }
@@ -233,13 +230,10 @@ class YouthPage extends StatelessWidget {
                           String name = nameController.text;
 
                           // Call the delete function with the event name (document ID) to delete the document
-                          await deleteFirestore(name);
+                          deleteFirestore(name);
 
                           nameController.clear();
-                          aboutController.clear();
-                          descriptionController.clear();
-                          imageController.clear();
-
+                          
                           Navigator.pop(context);
                         },
                         child: const Text('Delete'),
@@ -260,10 +254,10 @@ class YouthPage extends StatelessWidget {
 Future<void> updateFirestore(String eventName, String newName, String newAbout,
     String newDescription, String newImage) async {
   try {
-    var db = FirebaseFirestore.instance;
+    var y = FirebaseFirestore.instance;
 
     // Update specific fields within the document
-    await db.collection('events').doc(eventName).update({
+    await y.collection('events').doc(eventName).update({
       'name': newName,
       'about': newAbout,
       'description': newDescription,
@@ -279,10 +273,10 @@ Future<void> updateFirestore(String eventName, String newName, String newAbout,
 
 Future<void> deleteFirestore(String eventName) async {
   try {
-    var db = FirebaseFirestore.instance;
+    var y = FirebaseFirestore.instance;
 
     // Delete the document based on activityName (assuming it's the document ID)
-    await db.collection('events').doc(eventName).delete();
+    await y.collection('events').doc(eventName).delete();
 
     print('Document deleted successfully!');
   } catch (e) {

@@ -10,7 +10,7 @@ class Youth {
       required this.image,
       required this.description,
       required this.about,
-       required Youth youth ,
+      // required Youth youth ,
       });
 
   Youth.fromMap(Map<String, dynamic> map) {

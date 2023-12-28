@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/student.page/readstudent.dart';
+import 'package:flutter_application_1/student.page/youStudent.dart';
 
 class SHomePage extends StatelessWidget {
   const SHomePage({super.key});
@@ -29,11 +30,6 @@ class SHomePage extends StatelessWidget {
             padding: EdgeInsets.all(25),
             child: Row(
               children: [
-                /* Image.network(
-                  "https://i.pinimg.com/564x/90/66/4c/90664cab760b7192ca4fa38379741021.jpg",
-                  width: 100,
-                  height: 100,
-                ),*/
                 SizedBox(width: 10),
                 Expanded(
                   child: Text(
@@ -70,11 +66,6 @@ class SHomePage extends StatelessWidget {
             padding: EdgeInsets.all(25),
             child: Row(
               children: [
-                /*Image.network(
-                  "https://example.com/image.png",
-                  width: 100,
-                  height: 100,
-                ),*/
                 SizedBox(width: 10),
                 Expanded(
                   child: Text(
@@ -90,7 +81,7 @@ class SHomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RStudentAct()),
+                      MaterialPageRoute(builder: (context) => YthStudent()),
                     );
                   },
                 ),
